@@ -1,7 +1,9 @@
-# Add 'Richelieu.txt' file to the repo
+# Convert pdf to text file >> 'Richelieu.txt'
 > pdftotext Richelieu.pdf
+
 # Convert 'Richelieu.txt' to bin file
 > base64 -di Richelieu.txt > ./decoded.bin
+
 # Use binwalk annalysis tool to extract files from text pdf
 > binwalk -e decoded.bin
 >>>
@@ -13,6 +15,7 @@ _decoded.bin.extracted
    ├── public.key            # RSA public key
    └── suite.zip             # This zip file is protected with password. We must decrypt password file to open this zip file
 > Strings decoded.bin
+
 # At the bottom of the Strings you can find the password
 >>> DGSE{t.D=@Bx^A%n9FQB~_VL7Zn8z=:K^4ikE=j0EGHqI}
 
