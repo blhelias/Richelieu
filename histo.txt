@@ -1,0 +1,19 @@
+# Add 'Richelieu.txt' file to the repo
+> pdftotext Richelieu.pdf
+# Convert 'Richelieu.txt' to bin file
+> base64 -di Richelieu.txt > ./decoded.bin
+# Use binwalk annalysis tool to extract files from text pdf
+> binwalk -e decoded.bin
+>>>
+_decoded.bin.extracted
+├── 6CDEB.zip
+├──├── lsb_RGB.png.enc # Encrypted image lsb gives us informatiom om the steganography technic used...
+   ├── motDePasseGPG.txt.enc # Encrypted file containing password
+   ├── prime.txt  # Prime number used for RSA encryption. Was slightly modified with sed commands
+   ├── public.key # RSA public key
+   └── suite.zip # This zip file is protected with password. We must decrypt password file to open this zip file
+> Strings decoded.bin
+# At the bottom of the Strings you can find the password
+>>> DGSE{t.D=@Bx^A%n9FQB~_VL7Zn8z=:K^4ikE=j0EGHqI}
+
+
