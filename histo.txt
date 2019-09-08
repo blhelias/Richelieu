@@ -4,7 +4,7 @@
 # Convert 'Richelieu.txt' to bin file
 > base64 -di Richelieu.txt > ./decoded.bin
 
-# Use binwalk annalysis tool to extract files from text pdf
+# Use binwalk annalysis tool to extract hidden files from 'decoded.bin' file
 > binwalk -e decoded.bin
 >>>
 _decoded.bin.extracted
